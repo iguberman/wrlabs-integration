@@ -20,7 +20,6 @@ RDEPENDS_${PN} = "\
     packagegroup-samples \
     packagegroup-wr-tools-debug \
     packagegroup-webserver \
-    packagegroup-xfce-desktop \
 "
 
 # If using meta-gateway add nodejs and mosquitto
