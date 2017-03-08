@@ -1,7 +1,7 @@
 SUMMARY = "Xilinx QEMU - fast open source processor emulator"
 HOMEPAGE = "http://www.wiki.xilinx.com/QEMU"
 LICENSE = "GPLv2 & LGPLv2.1"
-DEPENDS = "glib-2.0 zlib pixman"
+DEPENDS = "glib-2.0 zlib"
 RDEPENDS_${PN}_class-target += "bash python"
 
 inherit autotools-brokensep
@@ -12,7 +12,7 @@ QEMU_TARGETS ?= "arm-softmmu"
 
 FILES_${PN} += "/*"
 
-EXTRA_OECONF += "--prefix=${bindir}/xilinx --target-list=arm-softmmu --disable-werror  --disable-bluez --disable-libiscsi --with-system-pixman --extra-cflags='${CFLAGS}'"
+EXTRA_OECONF += "--prefix=${bindir}/xilinx --target-list=arm-softmmu --disable-werror  --disable-bluez --disable-libiscsi --extra-cflags='${CFLAGS}'"
 
 EXTRA_OECONF_class-nativesdk = "--target-list=arm-softmmu --disable-werror "
 export LIBTOOL="${HOST_SYS}-libtool"
