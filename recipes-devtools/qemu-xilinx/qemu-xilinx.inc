@@ -60,8 +60,8 @@ do_install () {
 }
 
 
-PACKAGECONFIG ??= "fdt sdl alsa"
-PACKAGECONFIG_class-native ??= "fdt alsa"
+PACKAGECONFIG ??= "fdt sdl"
+PACKAGECONFIG_class-native ??= "fdt"
 PACKAGECONFIG_class-nativesdk ??= "fdt sdl"
 NATIVEDEPS = ""
 NATIVEDEPS_class-native = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'libxext-native', '',d)}"
@@ -85,12 +85,10 @@ PACKAGECONFIG[libcap-ng] = "--enable-cap-ng,--disable-cap-ng,libcap-ng,"
 PACKAGECONFIG[ssh2] = "--enable-libssh2,--disable-libssh2,libssh2,"
 PACKAGECONFIG[libusb] = "--enable-libusb,--disable-libusb,libusb1"
 PACKAGECONFIG[fdt] = "--enable-fdt,--disable-fdt,dtc"
-PACKAGECONFIG[alsa] = ",,alsa-lib"
 PACKAGECONFIG[glx] = "--enable-glx,--disable-glx,mesa"
 #PACKAGECONFIG[lzo] = "--enable-lzo,--disable-lzo,lzo"
 #PACKAGECONFIG[numa] = "--enable-numa,--disable-numa,numactl"
 
-EXTRA_OECONF += "${@bb.utils.contains('PACKAGECONFIG', 'alsa', '--audio-drv-list=oss,alsa', '', d)}"
 
 # Qemu target will not build in world build for ARM or Mips
 BROKEN_qemuarm = "1"
